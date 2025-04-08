@@ -1,4 +1,4 @@
-import { computed, defineExtension, useCommand, useDisposable, useEvent, useStatusBarItem } from 'reactive-vscode'
+import { defineExtension, useCommand, useDisposable, useStatusBarItem } from 'reactive-vscode'
 import { StatusBarAlignment, commands as vscodeCommands, window } from 'vscode'
 import { findReferences } from './find-references'
 import { commands, name } from './generated/meta'
