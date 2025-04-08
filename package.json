@@ -2,7 +2,7 @@
   "publisher": "rcoopr",
   "name": "symbol-skip",
   "displayName": "Symbol Skip",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "packageManager": "pnpm@9.15.2",
   "description": "Jump to the next symbol while excluding irrelevant files",
