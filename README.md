@@ -12,9 +12,9 @@ Go to next symbol while excluding files based on config<br>
 
 <!-- configs -->
 
-| Key                          | Description                      | Type    | Default     |
-| ---------------------------- | -------------------------------- | ------- | ----------- | ----------- |
-| `symbolSkip.excludePatterns` | Exclude patterns for symbol skip | `array` | `[".\*(test | spec).\*"]` |
+| Key                          | Description                      | Type       | Default                    |
+| ---------------------------- | -------------------------------- | ---------- | -------------------------- |
+| `symbolSkip.excludePatterns` | Exclude patterns for symbol skip | `string[]` | `[".\*(test \| spec).\*"]` |
 
 <!-- configs -->
 
