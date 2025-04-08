@@ -1,0 +1,110 @@
+{
+  "publisher": "rcoopr",
+  "name": "symbol-skip",
+  "displayName": "Symbol Skip",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@9.15.2",
+  "description": "Jump to the next symbol while excluding irrelevant files",
+  "author": "Ross Cooper",
+  "license": "MIT",
+  "homepage": "https://github.com/rcoopr/vscode-symbol-skip#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rcoopr/vscode-symbol-skip"
+  },
+  "bugs": {
+    "url": "https://github.com/rcoopr/vscode-symbol-skip/issues"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/index.js",
+  "icon": "res/icon.png",
+  "files": [
+    "LICENSE.md",
+    "dist/*",
+    "res/*"
+  ],
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "category": "Symbol Skip",
+        "title": "Go to next symbol",
+        "command": "symbolSkip.nextSymbol"
+      },
+      {
+        "category": "Symbol Skip",
+        "title": "Go to previous symbol",
+        "command": "symbolSkip.previousSymbol"
+      },
+      {
+        "category": "Symbol Skip",
+        "title": "Find References",
+        "command": "symbolSkip.findReferences"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "symbolSkip.findReferences",
+        "key": "F12",
+        "when": "editorHasDefinitionProvider && editorTextFocus"
+      },
+      {
+        "command": "symbolSkip.nextSymbol",
+        "key": "F12",
+        "when": "hasSymbols"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "properties": {
+        "symbolSkip.excludePatterns": {
+          "type": "array",
+          "default": [".*(test|spec).*"],
+          "description": "Exclude patterns for symbol skip",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --external vscode",
+    "dev": "nr build --watch",
+    "prepare": "nr update",
+    "update": "vscode-ext-gen --output src/generated/meta.ts --scope symbolSkip",
+    "lint": "eslint .",
+    "vscode:prepublish": "nr build",
+    "publish": "vsce publish --no-dependencies",
+    "pack": "vsce package --no-dependencies -o dist/symbol-skip.vsix",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "release": "bumpp && nr publish"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^3.12.1",
+    "@antfu/ni": "^0.23.2",
+    "@types/node": "^22.10.2",
+    "@types/vscode": "1.90.0",
+    "@vscode/vsce": "^3.2.1",
+    "bumpp": "^9.9.2",
+    "eslint": "^9.17.0",
+    "eslint-plugin-format": "^0.1.3",
+    "esno": "^4.8.0",
+    "pnpm": "^9.15.2",
+    "reactive-vscode": "^0.2.9",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.6",
+    "vitest": "^2.1.8",
+    "vscode-ext-gen": "^0.5.5"
+  }
+}
