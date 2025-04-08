@@ -67,7 +67,9 @@
       "properties": {
         "symbolSkip.excludePatterns": {
           "type": "array",
-          "default": [".*(test|spec).*"],
+          "default": [
+            ".*(test|spec).*"
+          ],
           "description": "Exclude patterns for symbol skip",
           "items": {
             "type": "string"
@@ -94,7 +96,7 @@
     "@antfu/ni": "^0.23.2",
     "@types/node": "^22.10.2",
     "@types/vscode": "1.90.0",
-    "@vscode/vsce": "^3.2.1",
+    "@vscode/vsce": "^3.3.2",
     "bumpp": "^9.9.2",
     "eslint": "^9.17.0",
     "eslint-plugin-format": "^0.1.3",
